@@ -15,23 +15,107 @@ img {
 /* General styles */
 body {
     font-family: Roboto;
+    font-size: 16px;
 }
+
 /* page sizing and padding */
 .container {
-    width: min(1440px, 100% - (1rem * 2));
+    width: min(1200px, 100% - (1rem * 2));
     margin-inline: auto;
 }
+
 /* Hero section */
 .hero-inner {
     display: grid;
-    grid-template-columns: 2fr 3fr;
+}
+
+.hero__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    align-self: center;
+    grid-area: 1 / 1 / 2 / 2;
 }
 
 .hero__content h1 {
-    color: lightblue;
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: capitalize;
+    max-width: 9ch;
+}
+
+.hero__content p {
+    font-weight: 500;
+    line-height: 2;
+}
+
+.btn {
+    cursor: pointer;
+    width: fit-content;
+    font-size: 1.1rem;
+    padding: 0.5em 1.2em;
+    color: #fff;
+    background-color: #fb7d29;
+    border: none;
+    border-radius: 50vh;
+    text-transform: capitalize;
+}
+
+.btn span {
+    margin-left: .5rem;
 }
 
 .hero__background {
-    height: 100vh;
-    background: no-repeat center/contain url('../images/hero.png');
+    height: 300px;
+    background: no-repeat center/110% url('../images/hero.png');
+    grid-area: 1 / 1 / 2 / 2;
+    z-index: -1;
+    align-self: center;
+}
+
+/* services section */
+.services {
+    margin-block-start: 2rem;
+}
+
+.services__title {
+    text-transform: uppercase;
+    font-weight: 400;
+    text-align: center;
+}
+
+.services__dishes {
+    display: grid;
+    gap: .5rem;
+    margin-block: 2rem;
+}
+
+.services__dishes>img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+/* 320 media query to iphone 5s*/
+@media (min-width: 321px) {
+
+    .hero-inner {
+        grid-template-columns: 2fr 3fr;
+        grid-auto-rows: 100vh;
+    }
+
+    .hero__background {
+        grid-column: 2;
+        height: 100%;
+        background-size: contain;
+    }
+
+    /* services large screem */
+    .services__dishes {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: auto;
+    }
+
+    .services__dishes>img:first-child {
+        grid-area: 1 / 1 / 3 / 3;
+    }
 }
