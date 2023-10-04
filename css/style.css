@@ -14,7 +14,7 @@ img {
 
 /* General styles */
 body {
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     font-size: 16px;
 }
 
@@ -25,6 +25,9 @@ body {
 }
 
 /* Hero section */
+.hero {
+    box-shadow: 0 .1rem 0.2rem #efefef;
+}
 .hero-inner {
     display: grid;
 }
@@ -78,7 +81,8 @@ body {
     margin-block-start: 2rem;
 }
 
-.services__title {
+.services__title,
+.menu__title {
     text-transform: uppercase;
     font-weight: 400;
     text-align: center;
@@ -87,12 +91,58 @@ body {
 .services__dishes {
     display: grid;
     gap: .5rem;
-    margin-block: 2rem;
+    padding-block: 2rem;
 }
 
 .services__dishes>img {
     aspect-ratio: 1 / 1;
     object-fit: cover;
+}
+
+/* menu section */
+.menu__plates {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding-block: 2rem;
+}
+.menu__plates  div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #feefec;
+    aspect-ratio: 1 / 1;
+    border-top-left-radius: 2rem;
+    position: relative;
+}
+.menu__plates div::before {
+    content: '';
+    position:  absolute;
+    top: .3rem;
+    right: .3rem;
+    width: 1.4rem;
+    aspect-ratio: 1 / 1;
+    background-color: white;
+    border-radius: 50vw;
+}
+.menu__plates div::after {
+    position:  absolute;
+    top: 0;
+    right: 0;
+    margin: .5rem;
+    color: #4dbdcb;
+    
+    font-family: "Font Awesome 5 Free";
+    font-size: 1rem;
+    font-weight: 900;
+    content: "\f004";
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.menu__plates div:nth-child(2)::after {
+    color: #d38e5c;
 }
 
 /* 320 media query to iphone 5s*/
